@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="dark">
+            <div class="cards">
+                <div class="card frontCard">
+                    <div class="circles">
+                        <div class="whiteCircle"></div>
+                        <div class="transparentCircle"></div>
+                        
+                    </div>
+                    <div class="numDataCard">
+                        <div class="cardNumber">0000 0000 0000 0000</div>
+                    <div class="dataCard">
+                        <div class="name">NAME USER</div>
+                        <div class="date">00/00</div>
+                    </div>
+                    </div>        
+                </div>
+
+                <div class="card backCard">
+                    <div class="lineBlack"></div>
+                    <div class="lineGrey">000</div>
+                </div>
+            </div>   
+        </div>
+
+        <div class="light">
+            <div class="form">
+                <form id="formCard">
+                    <div class="infoCard">
+                        <span id="errorForm" class="hidden">Incomplete form</span>
+                        <label class="labelForm" for="name">CARDHOLDER NAME</label>
+                        <input type="text" id="name" placeholder="name Card" required="required" autocomplete="off">
+                        <label class="labelForm" for="number">CARD NUMBER</label>
+                        <input  type="tel" id="number"  placeholder="0000 0000 0000 0000" required="required" maxlength="19" oninput="formatCreditCardNumber(this)" onchange="checkInput(this)">
+                        <span id="numberError" class="hidden">Wrong Format</span>    
+                    </div>
+                    <div class="infoDate">
+                        <div class="expirationDate">
+                            <label class="labelMonth" for="month" class="month">EXP. DATE (MM/YY)</label>
+        
+                            <div class="monthAndYear">  
+                                <class class="divMonth">
+                                    <input type="tel" name="month" id="month" placeholder="MM" required="required" maxlength="2" onchange="checkInput(this)">
+                                    <span id="errorMonth"  class="hidden">Wrong Format</span>
+                                </class>
+                                <div class="divYear">
+                                    <input type="tel" name="year" id="year" placeholder="YYYY" required="required" maxlength="4" onchange="checkInput(this)">
+                                    <span id="errorYear" class="hidden">Wrong Format</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="cvc">
+                            <label for="cvc" class="cvc">CVC</label>
+                            <input type="tel" name="cvc" id="cvc" placeholder="123" required="required" maxlength="3" onchange="checkInput(this)">
+                            <span id="errorCvc" class="hidden">Wrong Format</span>
+                        </div>
+                    </div>
+                   
+                    <div class="buttonConfirm">
+                        <input type="button" value="CONFIRM" class="confirm" id="confirm">
+                    </div>
+                    
+            
+                </form>
+
+                <form id="hidden" class="secondForm">
+                    <img src="icon-complete.svg" alt="icon complete">
+                    <h1>thank you!</h1>
+                    <p>We've added your card details</p>
+                    <input type="button" value="Back" class="back" id="back">
+                  </form>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="vanilla.js"></script>
+    <script type="text/javascript">
+	VanillaTilt.init(document.querySelectorAll(".card"), {
+		max: 25,
+		speed: 400
+	});
+</script>
+</body>
+</html>
